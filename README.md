@@ -140,7 +140,7 @@ Will run the video at 48 FPS. The default FPS is 60.
 
  Jupyter notebook file includes python codes.
 
-###`driving_log_2.csv`
+### `driving_log_2.csv`
 
  Driving record data from simulator.
 
@@ -166,7 +166,7 @@ python drive.py model.h5 run1
 ### `Other .csv files (test.csv, train.csv, val.csv)`
 Temporary files, which are used in Code_test.ipynb. These files are necessary to execute training with generator.
 
-##<FYI for project>
+## `<FYI for project>`
 ### Tips
 - Please keep in mind that training images are loaded in BGR colorspace using cv2 while drive.py load images in RGB to predict the steering angles.
 
