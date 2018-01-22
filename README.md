@@ -140,14 +140,14 @@ Will run the video at 48 FPS. The default FPS is 60.
 
  Jupyter notebook file includes python codes.
 
-###driving_log_2.csv
+###`driving_log_2.csv`
 
  Driving record data from simulator.
 
  Note: I created the driving record based on keyborad input only. With this operation, almost input of steering angle is 25 or 0. To ajudst from very discrete data to continuous data, I added final column with the following operation.
 if |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.
 
-### 'model_tf_50.h5'
+### `model_tf_50.h5`
 
  Trained model to execute autonomous driving mode with the simulator.
  Without recording image druing the autonomous driving, please apply the following command.
@@ -163,7 +163,7 @@ python drive.py model.h5
 python drive.py model.h5 run1
 ```
 
-### Other .csv files (test.csv, train.csv, val.csv)
+### `Other .csv files (test.csv, train.csv, val.csv)`
 Temporary files, which are used in Code_test.ipynb. These files are necessary to execute training with generator.
 
 ##<FYI for project>
