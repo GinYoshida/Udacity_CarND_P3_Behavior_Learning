@@ -78,12 +78,18 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
- I applied transfer learning of GoogleNet, which is possible from Keras "Applications".
+ Based on training material in this project of Udacity and following blog, transfer learning with lower level feature for this project was applied.
+ Because, "small data set" and "Different data set" were seems to be this takes' type.
+
+ This is Link of blog, which shows transfer learning types.
+ https://deeplearningsandbox.com/how-to-use-transfer-learning-and-fine-tuning-in-keras-and-tensorflow-to-build-an-image-recognition-94b0b02444f2
+
+ GoogleNet, InceptionV3 in Keras "Applications", was applied with only lower level feature, i.e. until Mixed1 layter.
+ 
+ This is link for Keras document.
  https://keras.io/ja/applications/#inceptionv3
- 
- 
- 
-The overall strategy for deriving a model architecture was to ...
+
+ After "Mixed1" layer, 1 convolution layer
 
 My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
 
