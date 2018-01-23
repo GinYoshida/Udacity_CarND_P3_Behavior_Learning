@@ -1,14 +1,14 @@
-# Behaviorial Cloning Project
+﻿# Behaviorial Cloning Project
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Overview
 ---
 
-This is write up report for Project3 of Udacity Nano Degree.
+This is repository for write up report for Project 3 of Udacity Nano Degree.
 In this readme file, overview of this repository is shown.
 
-<Requirement for this project>
+**Requirement for this project**
 This repository contains starting files for the Behavioral Cloning Project.
 
 In this project, you will use what you've learned about deep neural networks and convolutional neural networks to clone driving behavior. You will train, validate and test a model using Keras. The model will output a steering angle to an autonomous vehicle.
@@ -24,12 +24,10 @@ To meet specifications, the project will require submitting five files:
 * a report writeup file (either markdown or pdf)
 * video.mp4 (a video recording of your vehicle driving autonomously around the track for at least one full lap)
 
-This README file describes how to output the video in the "Details About Files In This Directory" section.
-
 Creating a Great Writeup
 ---
 
-<Requirement for writeup report is shown>
+**Requirement /tips from Udacity for writeup report is shown**
 A great writeup should include the [rubric points](https://review.udacity.com/#!/rubrics/432/view) as well as your description of how you addressed each point.  You should include a detailed description of the code used (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
 
 All that said, please be concise!  We're not looking for you to write a book here, just a brief description of how you passed each rubric point, and references to the relevant code :). 
@@ -51,10 +49,13 @@ This lab requires:
 
 The lab enviroment can be created with CarND Term1 Starter Kit. Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for the details.
 
+### Structure of this repository
+
 The following resources can be found in this github repository:
-<Files>
+**Files**
 * drive.py
 * video.py
+* model.py
 * writeup.md
 * Code_test.ipynb
 * dribing_log.csv, driving_log_2.csv
@@ -63,14 +64,14 @@ The following resources can be found in this github repository:
 * train.csv
 * val.csv
 
-<Directory>
+**Directory**
 * IMG
 * training_data
  
  
-The simulator can be downloaded from the classroom. In the classroom, we have also provided sample data that you can optionally use to help train your model.
+The simulator can be downloaded from the classroom. In the classroom.
 
-## Details About Files In This Directory
+## Details About Files In This Repository
 
 ### `drive.py`
 
@@ -136,16 +137,22 @@ Will run the video at 48 FPS. The default FPS is 60.
 1. It's been noted the simulator might perform differently based on the hardware. So if your model drives succesfully on your machine it might not on another machine (your reviewer). Saving a video is a solid backup in case this happens.
 2. You could slightly alter the code in `drive.py` and/or `video.py` to create a video of what your model sees after the image is processed (may be helpful for debugging).
 
+### `model.py`
+
+Python code includes all codes for training.
+
 ### `Code_test.ipynb`
 
  Jupyter notebook file includes python codes.
+ For the trial with AWS EC2 instance, this file was used.
 
-### `driving_log_2.csv`
+### `driving_log.csv`
 
  Driving record data from simulator.
 
  Note: I created the driving record based on keyborad input only. With this operation, almost input of steering angle is 25 or 0. To ajudst from very discrete data to continuous data, I added final column with the following operation.
-if |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.
+If | (Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.
+This means that bigger absolute value of moving average or raw data was applied.
 
 ### `model_tf_50.h5`
 
@@ -156,7 +163,7 @@ if |(Moving average of steering angle with 5 rows)| > |steering angle|, apply mo
 python drive.py model.h5
 ```
 
- With recording image druing the autonomous driving, please apply the following command.
+ With recording image during the autonomous driving, please apply the following command.
  Final argument is directory name to save images. Any name is fine.
 
 ```sh
@@ -166,7 +173,7 @@ python drive.py model.h5 run1
 ### `Other .csv files (test.csv, train.csv, val.csv)`
 Temporary files, which are used in Code_test.ipynb. These files are necessary to execute training with generator.
 
-## `<FYI for project>`
+## `Tips for this project from Udacity`
 ### Tips
 - Please keep in mind that training images are loaded in BGR colorspace using cv2 while drive.py load images in RGB to predict the steering angles.
 
