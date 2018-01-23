@@ -43,40 +43,9 @@ python drive.py model_tf_50.h5
 ```
 As evidence, recorded video is included in this repository as "run1.mp4".
 
-
 ### Model Architecture and Training Strategy
 
-#### 1. An appropriate model architecture has been employed
-
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
-
-|Layer type   |Output shape   |Number of parameter   |
-|:-:|:-:|:-:|
-|Normalize (Lambda)|   |   |
-|   |   |   |
-|   |   |   |
-Total parameter:  995,449
-
-
-#### 2. Attempts to reduce overfitting in the model
-
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
-
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
-
-#### 3. Model parameter tuning
-
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
-
-#### 4. Appropriate training data
-
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
-
-For details about how I created the training data, see the next section. 
-
-### Model Architecture and Training Strategy
-
-#### 1. Solution Design Approach
+#### 3. Solution Design Approach
 
 ##### Basic strategy
  Based on training material in this project of Udacity and following blog, transfer learning with lower level feature for this project was applied.
@@ -90,48 +59,43 @@ For details about how I created the training data, see the next section.
  This is link for Keras document.
  https://keras.io/ja/applications/#inceptionv3
 
-##### Basic strategy
- After "Mixed1" layer, 1 convolution layer and some Full
+ Model architecture is shown as below.
  
- Problem:
- Memody handling,
- Discreated data,
- Overfitting
- Generalization
+ High parameters for training is:
+ 
+ 
+
+##### Solution for each key point
+---
+ Following points are difficulty to reach the goal.
+1) Data augmentation data
+
+ The driving record was created based on keyborad input only. With this operation, almost input of steering angle is 25 or 0. To ajudst from very discrete data to continuous data, I added final column with the following operation.
+
+ If |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.
+
+ Original steering data distiburion is shown in Fig xxx.
+
+ Then, data argumentataion was done with refering NVIDIA approach.
+ xxxx
+ Steering angle adjustment from the left/right camera was 0.2.
+ Shifting 
+
+https://arxiv.org/pdf/1604.07316.pdf
+
+2) Memory handling with argumented training data
+ To handle.
+ 
+
+3) Generalization
+ The most time consuming part to solving
+ Color shuffle of compositon of color ois
 
 
-#### 2. Final Model Architecture
-
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
-
-#### 3. Creation of the Training Set & Training Process
-
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+ Over fitting
+ With Adam, Batch nomralization and Dropout, not 
 
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
