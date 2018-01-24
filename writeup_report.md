@@ -21,6 +21,7 @@ The goals / steps of this project are the following:
 [image5]: ./fig/train_Example_left.jpg "training data example of left camera"
 [image6]: ./fig/train_Example_center.jpg "training data example of center camera"
 [image7]: ./fig/train_Example_right.jpg "training data example of right camera"
+[image8]: ./fig/Example_dirt.jpg "example of dirt on right"
 
 
 ## Rubric Points
@@ -63,7 +64,24 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 
  Model architecture is shown as below.  
  
- High parameters for training is:  
+**Table. Model architecture**  
+
+| Number        | Layer type           | Output size  |
+|:-------------:|:-------------:| -----:|
+| 1      | Normalize (Lambda)  | (160, 320, 3) |
+| 1      | Normalize (Lambda)  | (160, 320, 3) |
+
+
+High parameters for training is:  
+
+
+
+**Fig. Training history**  
+
+![alt text][image4] 
+ 
+
+
  
  ---
 #### 2.Solution for each key point  
@@ -75,7 +93,8 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 
  If |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.  
 
- Also, reduction of 0 angle data was implemented during import training data.  
+ Also, reduction of 0 angle data was implemented during import training data.
+ With changing how much 0 angle delete, this characterize the vehicle behaviro. For instance, no reduction of 0 angle data, the vehicle tends to go straight in corner but keep more center part of road in straight part.
  (In model.py: Line 35~37)
  
  Histogram of original steering data is shown as below.  
@@ -127,10 +146,6 @@ https://arxiv.org/pdf/1604.07316.pdf
  Then, color composition shuffle part was implemented into generator of training data, to make the model be more generalized.  
 (line 192~195)  
 
-**Fig. the hardest part of driving corse
+**Fig. the hardest part of driving corse**  
 
-XXXX
-
-
-#### 3. tuning parameter for vehicle behavior  
-
+![alt text][image8]  
