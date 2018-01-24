@@ -88,7 +88,17 @@ With only center camera data, almost steering angle is 0. It is difficult for mo
   
   a) Apply Left / Right camera data with steering angle of +/- 0.2.
   (In model.py: Line 46~59)
-  
+
+**Fig. traing data example from each camera**
+(a) Left
+![alt text][image5]
+
+(b) Center
+![alt text][image6]
+
+(c) Right
+![alt text][image7]
+
   b) Apply random shift, from -25 to +25 in horizontal direction, to original training data.
   Then, add (0.2) x (Shifted pixel) / 25 to original steering angle. 
   (In model.py: Line 79~114)
@@ -113,7 +123,4 @@ https://arxiv.org/pdf/1604.07316.pdf
  Over fitting
  With Adam, Batch nomralization and Dropout, not 
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
 
