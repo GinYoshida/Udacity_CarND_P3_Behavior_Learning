@@ -67,9 +67,33 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 **Table. Model architecture**  
 
 | Number        | Layer type           | Output size  |
-|:-------------:|:-------------:| -----:|
+|:-------------:|:-------------:| :-----:|
 | 1      | Normalize (Lambda)  | (160, 320, 3) |
-| 1      | Normalize (Lambda)  | (160, 320, 3) |
+| 2      | Cropping (Cropping2D)  | (90, 320, 3) |
+| .      | .  |  |
+| .      | .  |  |
+| .      | .  |  |
+| .      | InceptionV3 from 1st to 65th layer  | (8, 37, 288) |
+| .      | .  |  |
+| .      | .  |  |
+| .      | .  |  |
+| 3     | Convolution (Conv2D) | (6, 35, 20) |
+| 4     | (BatchNormalization) | (6, 35, 20) |
+| 5     | (MaxPooling2D) | (3, 17, 20) |
+| 6     | Activation(ELU) | (3, 17, 20) |
+| 7     | (Dropout)  | (3, 17, 20) |
+| 8     | (Flatten)   | (1020) | 
+| 9     | Fully-connected (Dense)  | (200) | 
+| 10    | (BatchNormalization)  | (200) | 
+| 11    | Activation(ELU)  | (200) | 
+| 12    | (Dropout)  | (200) | 
+| 13    | Fully-connected (Dense)  | (100) | 
+| 14    | (BatchNormalization)  | (100) | 
+| 15    | Activation(ELU)  | (100) | 
+| 16    | (Dropout)  | (100) | 
+| 17    | Fully-connected (Dense)  | (1)) | 
+
+
 
 
 High parameters for training is:  
