@@ -63,10 +63,7 @@ The following resources can be found in this github repository:
 * test.csv
 * train.csv
 * val.csv
-
-**Directory**
-* IMG
-* training_data
+* IMG.zip
  
  
 The simulator can be downloaded from the classroom. In the classroom.
@@ -141,6 +138,10 @@ Will run the video at 48 FPS. The default FPS is 60.
 
  Summary report for this project.  
  Detail of model.py and description of model are shown.
+
+### `IMG.zip`
+ 
+ .zip file of training data. Before execute following model.py or Code_test.ipynb, please unzip this IMG.zip in same directry of them.  
 
 ### `model.py`
 
