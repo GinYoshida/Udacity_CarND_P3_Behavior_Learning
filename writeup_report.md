@@ -93,6 +93,9 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 | 16    | (Dropout)  | (100) | 
 | 17    | Fully-connected (Dense)  | (1)) | 
 
+ InceptionV3 layers were freezed.  
+ (In model.py line 279~290)  
+
 Total params: 995,449  
 Trainable params: 287,201  
 Non-trainable params: 708,248  
