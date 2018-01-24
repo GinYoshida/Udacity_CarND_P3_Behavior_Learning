@@ -93,14 +93,21 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 | 16    | (Dropout)  | (100) | 
 | 17    | Fully-connected (Dense)  | (1)) | 
 
+Total params: 995,449
+Trainable params: 287,201
+Non-trainable params: 708,248
 
-
-
-High parameters for training is:  
-
+**High parameters**  
+Number of epochs: 50
+Initial learning rate: 0.005
+batch_size: 32
+Keep probability of dropof: 0.6
 
 
 **Fig. Training history**  
+ Before implementation of batch normalization, "all steering angles = 0" were learned by model. 
+ With implmentation of batch normalization, the traing model is stable.
+ RMS of training and validation was decreased straightforward.
 
 ![alt text][image4] 
  
