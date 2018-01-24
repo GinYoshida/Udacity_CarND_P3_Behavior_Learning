@@ -90,6 +90,7 @@ With only center camera data, almost steering angle is 0. It is difficult for mo
   (In model.py: Line 46~59)
 
 **Fig. traing data example from each camera**
+
 (a) Left
 ![alt text][image5]
 
