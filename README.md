@@ -56,7 +56,7 @@ The following resources can be found in this github repository:
 * drive.py
 * video.py
 * model.py
-* writeup.md
+* writeup_report.md
 * Code_test.ipynb
 * dribing_log.csv, driving_log_2.csv
 * model_tf_50.h5
@@ -136,6 +136,11 @@ Will run the video at 48 FPS. The default FPS is 60.
 
 1. It's been noted the simulator might perform differently based on the hardware. So if your model drives succesfully on your machine it might not on another machine (your reviewer). Saving a video is a solid backup in case this happens.
 2. You could slightly alter the code in `drive.py` and/or `video.py` to create a video of what your model sees after the image is processed (may be helpful for debugging).
+
+### `writeup_repot.md`
+
+ Summary report for this project.  
+ Detail of model.py and description of model are shown.
 
 ### `model.py`
 
