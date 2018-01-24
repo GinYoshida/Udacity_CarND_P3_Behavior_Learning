@@ -14,13 +14,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./fig/Hist_with_CSV.png  "Hist before augmentation"
+[image2]: ./fig/Hist_after_aug.png "Hist after augmentation"
+[image3]: ./fig/Example_after_aug.png "Recovery Image"
+[image4]: ./fig/Train.png  "RMS data during training"
+[image5]: ./fig/train_Example_left.jpg "training data example of left camera"
+[image6]: ./fig/train_Example_center.jpg "training data example of center camera"
+[image7]: ./fig/train_Example_right.jpg "training data example of right camera"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
