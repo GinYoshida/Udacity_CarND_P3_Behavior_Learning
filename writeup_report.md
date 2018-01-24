@@ -45,8 +45,9 @@ python drive.py model.h5
 ```  
 As evidence, recorded video is included in this repository as "run1.mp4".
 
-### Model Architecture and Training Strategy  
 ---
+### Model Architecture and Training Strategy  
+
 
 #### 1. Basic strategy  
  Based on training material in this project of Udacity and following blog, transfer learning with lower level feature for this project was applied.  
@@ -74,6 +75,9 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 
  If |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.  
 
+ Also, reduction of 0 angle data was implemented during import training data.  
+ (In model.py: Line 35~37)
+ 
  Histogram of original steering data is shown as below.  
 
 **Fig. Histogram of training data without data augmentation**  
@@ -85,7 +89,7 @@ As evidence, recorded video is included in this repository as "run1.mp4".
 With only center camera data, almost steering angle is 0. It is difficult for model to learn how to control steering.  
   Based on NVIDIA document, 2 data augmentation methods were applied.
   
-  a) Apply Left / Right camera data with steering angle of +/- 0.2.
+  a) Apply Left / Right camera data with steering angle of +/- 0.2.  
   (In model.py: Line 46~59)
 
 **Fig. traing data example from each camera**
@@ -111,16 +115,22 @@ https://arxiv.org/pdf/1604.07316.pdf
 **Fig. Histogram of training data with data augmentation**
 ![alt text][image2]
 
-#### 3) Memory management / generalization of training data
+#### 3) Memory management  
 
- With augmented data, it is not possiblxxxx 
+ With augmented data, it is not possible bsecause whole traing size is too big to handl normal fit method of Keras.  
+ In accordance with training material of this project, genetator was implemented for the model.  
+(line 161~234)  
 
-3) Generalization
- The most time consuming part to solving
- Color shuffle of compositon of color ois
+#### 4) Generalization of training data  
+
+ The hardest part to meet the requiment of thie project was to pass curves which have dirt field on right side. Vehicle can not detect border from paved road and dirt field. The generalization of color detection was supposed as driver for this difficulty.  
+ Then, color composition shuffle part was implemented into generator of training data, to make the model be more generalized.  
+(line 192~195)  
+
+**Fig. the hardest part of driving corse
+
+XXXX
 
 
- Over fitting
- With Adam, Batch nomralization and Dropout, not 
-
+#### 3. tuning parameter for vehicle behavior  
 
