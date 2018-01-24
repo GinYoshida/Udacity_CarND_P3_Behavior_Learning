@@ -29,61 +29,60 @@ The goals / steps of this project are the following:
 ---
 ### Files Submitted 
 
-#### 1. Submission of codes and report
+#### 1. Submission of codes and report  
 
-My project includes the following files:
+My project includes the following files:  
 * "model.py" containing python code 
 * "Code_test.ipynb": jupyter notebook to test each code to create model.py and visualize output
 * drive.py: for driving the car in autonomous mode
 * model.h5: trained model file: output from model.py 
 * writeup_report.md: summarizing the results (This file)
 
-#### 2. Submission of binary files
-With following command, acutonomous driving is possible with simulator.
+#### 2. Submission of binary files  
+With following command, acutonomous driving is possible with simulator.  
 ```sh
 python drive.py model.h5
-```
+```  
 As evidence, recorded video is included in this repository as "run1.mp4".
 
-### Model Architecture and Training Strategy
+### Model Architecture and Training Strategy  
 ---
 
-#### 1. Basic strategy
- Based on training material in this project of Udacity and following blog, transfer learning with lower level feature for this project was applied.
- Because, "small data set" and "Different data set" were seems to be this takes' type.
+#### 1. Basic strategy  
+ Based on training material in this project of Udacity and following blog, transfer learning with lower level feature for this project was applied.  
+ Because, "small data set" and "Different data set" were seems to be this takes' type.  
 
- This is Link of blog, which shows transfer learning types.
- https://deeplearningsandbox.com/how-to-use-transfer-learning-and-fine-tuning-in-keras-and-tensorflow-to-build-an-image-recognition-94b0b02444f2
+ This is Link of blog, which shows transfer learning types.  
+ https://deeplearningsandbox.com/how-to-use-transfer-learning-and-fine-tuning-in-keras-and-tensorflow-to-build-an-image-recognition-94b0b02444f2  
 
- GoogleNet, InceptionV3 in Keras "Applications", was applied with only lower level feature, i.e. until Mixed1 layter.
+ GoogleNet, InceptionV3 in Keras "Applications", was applied with only lower level feature, i.e. until Mixed1 layter.  
  
- This is link for Keras document.
- https://keras.io/ja/applications/#inceptionv3
+ This is link for Keras document.  
+ https://keras.io/ja/applications/#inceptionv3  
 
- Model architecture is shown as below.
+ Model architecture is shown as below.  
  
- High parameters for training is:
+ High parameters for training is:  
  
  ---
-#### 2.Solution for each key point
- Following points are difficulty to reach the goal.
+#### 2.Solution for each key point  
+ Following points are difficulty to reach the goal.  
  
-#### 1) Data collection
+#### 1) Data collection  
 
- The driving record was created based on keyboard input only, not with mouse operation. With this operation, almost input of steering angle is 25 or 0. To adjust from very discrete data to continuous data, I added final column with the following operation.
+ The driving record was created based on keyboard input only, not with mouse operation. With this operation, almost input of steering angle is 25 or 0. To adjust from very discrete data to continuous data, I added final column with the following operation.  
 
- If |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.
+ If |(Moving average of steering angle with 5 rows)| > |steering angle|, apply moving average. Another case is opposite way.  
 
- Histogram of original steering data is shown as below.
+ Histogram of original steering data is shown as below.  
 
-**Fig. Histogram of training data without data augmentation**
+**Fig. Histogram of training data without data augmentation**  
 
-![alt text][image1]
+![alt text][image1]  
 
+#### 2) Data argumentation for angle  
 
-#### 2) Data argumentation for angle
-
-With only center camera data, almost steering angle is 0. It is difficult for model to learn how to control steering.
+With only center camera data, almost steering angle is 0. It is difficult for model to learn how to control steering.  
   Based on NVIDIA document, 2 data augmentation methods were applied.
   
   a) Apply Left / Right camera data with steering angle of +/- 0.2.
@@ -91,13 +90,13 @@ With only center camera data, almost steering angle is 0. It is difficult for mo
 
 **Fig. traing data example from each camera**
 
-(a) Left
+(a) Left  
 ![alt text][image5]
 
-(b) Center
+(b) Center  
 ![alt text][image6]
 
-(c) Right
+(c) Right  
 ![alt text][image7]
 
   b) Apply random shift, from -25 to +25 in horizontal direction, to original training data.
