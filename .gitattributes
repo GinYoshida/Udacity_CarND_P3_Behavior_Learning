@@ -1,1 +1,2 @@
 ./IMG/* filter=lfs diff=lfs merge=lfs -text
+IMG.zip filter=lfs diff=lfs merge=lfs -text
