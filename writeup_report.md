@@ -135,7 +135,7 @@ Keep probability of dropof: 0.6
 
 ![alt text][image1]  
 
-#### 2) Data argumentation for angle  
+#### 2) Data augumentation for angle  
 
 With only center camera data, almost steering angle is 0. It is difficult for model to learn how to control steering.  
   Based on NVIDIA document, 2 data augmentation methods were applied.
